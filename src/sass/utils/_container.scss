@@ -20,8 +20,5 @@
 }
 
 .section {
-  padding-bottom: 70px;
-  @include media-query(desktop) {
-    padding-bottom: 130px;
-  }
+  padding-bottom: 60px;
 }

@@ -5,16 +5,13 @@ html {
 }
 
 body {
-  //   margin: 0;
-  //   font-family: 'Montserrat', 'Times New Roman', sans-serif;
-  //   font-weight: 500;
-  //   font-size: 12px;
-  //   letter-spacing: 0.08em;
-  //   color: $color-primary;
-  //   background-color: $color-background;
-  //   @include media-query(desktop) {
-  //     font-size: 18px;
-  //   }
+  margin: 0;
+  font-family: 'Montserrat', 'Times New Roman', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  color: $color-primary;
+  background-color: $color-background;
 }
 
 h1,
