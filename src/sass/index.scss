@@ -1,2 +1,6 @@
+@import './utils/variables';
 @import './common';
-@import './example';
+@import './utils/mixin';
+@import './layout/header';
+@import './layout/main-list';
+@import './layout/footer';

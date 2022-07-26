@@ -1,1 +1,47 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  //   margin: 0;
+  //   font-family: 'Montserrat', 'Times New Roman', sans-serif;
+  //   font-weight: 500;
+  //   font-size: 12px;
+  //   letter-spacing: 0.08em;
+  //   color: $color-primary;
+  //   background-color: $color-background;
+  //   @include media-query(desktop) {
+  //     font-size: 18px;
+  //   }
+}
+
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
