@@ -8,11 +8,13 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
-
+  font-size: 14px;
+  line-height: 1.21;
+  @include media-query(tablet) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
   text-align: center;
-
   color: #939393;
 }
 
