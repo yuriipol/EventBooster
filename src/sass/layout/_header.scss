@@ -1,0 +1,177 @@
+.header {
+  text-align: center;
+  background-color: rgba(11, 11, 11, 0.5);
+  @include media-query(mobile) {
+    padding-top: 80px;
+    padding-bottom: 112px;
+
+    background-image: url(../images/header/logo_sm.svg),
+      url(../images/header/bg_logo_sm.png),
+      linear-gradient(
+        180deg,
+        rgba(13, 13, 13, 0.19) 0%,
+        rgba(14, 14, 14, 0.8) 100%
+      ),
+      url(../images/header/bg_sm.jpg);
+
+    @include media-query(retina) {
+      background-image: url(../images/header/logo_sm.svg),
+        url(../images/header/bg_logo_sm.png),
+        linear-gradient(
+          180deg,
+          rgba(13, 13, 13, 0.19) 0%,
+          rgba(14, 14, 14, 0.8) 100%
+        ),
+        url(../images/header/bg_sm@2x.jpg);
+    }
+
+    background-size: 107px 90px, 107px 90px, cover, cover;
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, top 0 left 0, center, center;
+
+    background-color: rgba(11, 11, 11, 0.5);
+  }
+  @include media-query(tablet) {
+    padding-top: 40px;
+    padding-bottom: 170px;
+    background-image: url(../images/header/logo.svg),
+      url(../images/header/bg_logo_md.png),
+      linear-gradient(
+        180deg,
+        rgba(13, 13, 13, 0.19) 0%,
+        rgba(14, 14, 14, 0.8) 100%
+      ),
+      url(../images/header/bg_md.jpg);
+
+    @include media-query(retina) {
+      background-image: url(../images/header/logo.svg),
+        url(../images/header/bg_logo_md.png),
+        linear-gradient(
+          180deg,
+          rgba(13, 13, 13, 0.19) 0%,
+          rgba(14, 14, 14, 0.8) 100%
+        ),
+        url(../images/header/bg_md@2x.jpg);
+    }
+    background-size: 180px 151px, 180px 151px, cover, cover;
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, top 0 left 0, center, center;
+  }
+  @include media-query(desktop) {
+    padding-top: 40px;
+    padding-bottom: 196px;
+
+    background-image: url(../images/header/logo.svg),
+      url(../images/header/bg_logo_lg.png),
+      linear-gradient(
+        180deg,
+        rgba(13, 13, 13, 0.19) 0%,
+        rgba(14, 14, 14, 0.8) 100%
+      ),
+      url(../images/header/bg_lg.jpg);
+
+    @include media-query(retina) {
+      background-image: url(../images/header/logo.svg),
+        url(../images/header/bg_logo_lg.png),
+        linear-gradient(
+          180deg,
+          rgba(13, 13, 13, 0.19) 0%,
+          rgba(14, 14, 14, 0.8) 100%
+        ),
+        url(../images/header/bg_lg@2x.jpg);
+    }
+    background-size: 229px 193px, 229px 193px, cover, cover;
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, top 0 left 0, center, center;
+  }
+}
+
+.header__title {
+  color: #dc56c5;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 900;
+  line-height: 1.22;
+  text-transform: uppercase;
+  @include media-query(mobile) {
+    font-size: 18px;
+    margin-bottom: 24px;
+
+    width: 240px;
+  }
+  @include media-query(tablet) {
+    font-size: 30px;
+    margin-bottom: 40px;
+    width: 400px;
+  }
+  @include media-query(desktop) {
+    font-size: 50px;
+    margin-bottom: 48px;
+    width: 608px;
+  }
+}
+
+.form {
+  @include media-query(mobile) {
+    text-align: center;
+  }
+  @include media-query(tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include media-query(desktop) {
+    justify-content: center;
+  }
+}
+
+.form__field {
+  @include media-query(mobile) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  @include media-query(responsive) {
+    width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include media-query(tablet) {
+    position: relative;
+
+    margin-left: 0;
+    margin-right: 0;
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+  @include media-query(desktop) {
+    min-width: 288px;
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+}
+
+.form-input {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 20px;
+  padding: 10px 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  &::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+
+    color: #939393;
+  }
+}
+
+.form__icon {
+  position: absolute;
+  bottom: 12px;
+  right: 32px;
+}
