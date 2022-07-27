@@ -10,7 +10,7 @@ export default class DiscoveryEventsSerch {
   constructor() {
     this.searchQuery = '';
     this.searchQueryCountry = '';
-    // this.page = 1;
+    this.page = 1;
     this.size = 16;
     // this.totalHits = null;
   }
@@ -28,7 +28,7 @@ export default class DiscoveryEventsSerch {
     });
     return request;
   }
-// ф-я для модалки
+  // ф-я для модалки
   async discoveryModalSerch() {
     //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
     const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
