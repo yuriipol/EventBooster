@@ -1,5 +1,5 @@
 <div class="modal-card">
-    <img src="{{this.events}}" alt="{{this.events}}" loading="lazy" class="modal-img"/>
+    <img src="{{this.images.url}" alt="{{this.name}}" width="102" height="102" loading="lazy" class="modal-img"/>
   <div class="info">
     <b class="info-title">Info</b>
     <p class="info-text">
@@ -7,23 +7,23 @@
     </p>
     <b class="info-title">When</b>
     <p class="info-text">
-       {{this.events.dates.start.localDate}}
-       {{this.events.dates.start.localTime}}
+       {{this.dates.start.localDate}}
+       {{this.dates.start.localTime}}
     </p>
     <b class="info-title">Where</b>
     <p class="info-text">
-       {{this.events.place}}
+       {{this.place}}
     </p>
     <b class="info-title">Who</b>
     <p class="info-text">
-       {{this.events.name}}
+       {{this.name}}
     </p>
     <b class="info-title">Prices</b> 
     <img src="src/images/ticket.svg" alt="zip-code">
      <p class="info-text">
       {{this.events}}
       </p>
-      <a href="{{this.events.url}}">
+      <a href="{{this.url}}">
         <button class="modal__buy-btn" type="button">Buy tickets</button>
       </a>
       <img src="src/images/ticket.svg" alt="zip-code">
