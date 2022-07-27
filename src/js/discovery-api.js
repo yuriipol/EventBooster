@@ -8,8 +8,9 @@ export default class DiscoveryEventsSerch {
   //создаем конструктор и обьявляем перемменные
   constructor() {
     this.searchQuery = '';
+    this.searchQueryCountry = '';
     this.page = 1;
-    this.dataPerPage = 40;
+    this.size = 32;
     this.totalHits = null;
   }
   //создаем метод (делаем его асинхронным), с помощью которого будем делать запросы на сервер
@@ -18,6 +19,9 @@ export default class DiscoveryEventsSerch {
     const request = await axios.get(`${this.#BASE_URL}`, {
       params: {
         apikey: this.#API_KEY,
+        keyword: this.searchQuery,
+        countryCode: this.searchQueryCountry,
+        size: this.size,
       },
     });
     return request;
@@ -41,5 +45,11 @@ export default class DiscoveryEventsSerch {
   }
   set query(newquery) {
     this.searchQuery = newquery;
+  }
+  get queryCountry() {
+    return this.searchQueryCountry;
+  }
+  set queryCountry(newQueryCountry) {
+    this.searchQueryCountry = newQueryCountry;
   }
 }
