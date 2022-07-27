@@ -1,0 +1,29 @@
+{{#each this}}
+  <li class='gallery__item'>
+    <div class='gallery-box__img'>
+      {{#each this.images}}
+        {{#if @first}}
+          <img
+            class='gallery__img'
+            src='{{this.url}}'
+            alt='poster'
+            loading='lazy'
+          />
+        {{/if}}
+      {{/each}}
+    </div>
+    <h3 class='gallery__subtitle'>{{this.name}}</h3>
+    <p class='gallery__years'>{{this.dates.start.localDate}}</p>
+    {{#each this._embedded.venues}}
+      <p class='gallery__location'>
+        <img
+          class='gallery__icon'
+          src='../images/location.svg'
+          alt='location'
+          loading='lazy'
+        />
+        {{this.country.name}}
+      </p>
+    {{/each}}
+  </li>
+{{/each}}
