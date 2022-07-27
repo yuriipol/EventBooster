@@ -12,6 +12,7 @@ export default class DiscoveryEventsSerch {
     this.searchQueryCountry = '';
     // this.page = 1;
     this.size = 16;
+    this.serchId = '';
     // this.totalHits = null;
   }
 
@@ -28,13 +29,14 @@ export default class DiscoveryEventsSerch {
     });
     return request;
   }
-// ф-я для модалки
+  // ф-я для модалки
   async discoveryModalSerch() {
     //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
-    const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
+
+    const request = await axios.get(`${this.#SECOND_URL}/G5vzZ96h0cPBi`, {
       params: {
         apikey: this.#API_KEY,
-        // id: 'Z7r9jZ1AdFw7g',
+        attractionId: this.serchId,
       },
     });
     return request;
@@ -65,4 +67,12 @@ export default class DiscoveryEventsSerch {
   set queryCountry(newQueryCountry) {
     this.searchQueryCountry = newQueryCountry;
   }
+
+  // get id() {
+  //   return this.serchId;
+  // }
+
+  // set id(newId) {
+  //   this.serchId = newId;
+  // }
 }

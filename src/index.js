@@ -14,6 +14,7 @@ form.addEventListener('submit', onInputSearch);
 
 async function onInputSearch(event) {
   event.preventDefault();
+
   discovery.query = event.currentTarget.elements.search_event.value;
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
