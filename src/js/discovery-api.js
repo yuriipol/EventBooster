@@ -4,6 +4,7 @@ import axios from 'axios';
 export default class DiscoveryEventsSerch {
   //объявляем приватные переменные
   #BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json?';
+  #SECOND_URL = 'https://app.ticketmaster.com/discovery/v2/events';
   #API_KEY = 'VpANaFCX5QJo9RhKSicdCJOJBDASVgJi';
   //создаем конструктор и обьявляем перемменные
   constructor() {
@@ -13,6 +14,7 @@ export default class DiscoveryEventsSerch {
     this.size = 16;
     // this.totalHits = null;
   }
+
   //создаем метод (делаем его асинхронным), с помощью которого будем делать запросы на сервер
   async discoveryEventsSerch() {
     //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
@@ -22,6 +24,17 @@ export default class DiscoveryEventsSerch {
         keyword: this.searchQuery,
         countryCode: this.searchQueryCountry,
         size: this.size,
+      },
+    });
+    return request;
+  }
+// ф-я для модалки
+  async discoveryModalSerch() {
+    //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
+    const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
+      params: {
+        apikey: this.#API_KEY,
+        // id: 'Z7r9jZ1AdFw7g',
       },
     });
     return request;

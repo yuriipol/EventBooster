@@ -4,8 +4,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
 
+  backdrop-filter: blur(5px);
+  z-index: 10;
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
@@ -23,30 +24,37 @@
 .modal {
   position: absolute;
   left: 20px;
-  top: 400px;
+  top: 100px;
+  max-width: 280px;
+
+padding: 80px 25px 100px;
+  
+// overflow-y: auto;
 
   @include media-query(tablet) {
     left: 32px;
-    top: 160px;
+   
+    width: 704px;
+
+    padding: 32px 49px 40px 87px;
   }
   @include media-query(desktop) {
     left: 123px;
-    top: 240px;
-  }
-
-  width: 280px;
-  height: 952px;
-
-  @include media-query(tablet) {
-    width: 704px;
-  }
-  @include media-query(desktop) {
+   
     width: 1034px;
+    padding: 54px 74px 40px;
   }
 
   background-color: #fff2fd;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 150px 0px;
+
+  @include media-query(tablet) {
+    border-radius: 300px 0px;
+  }
+}
+.modal-card {
+  text-align: center;
 }
 .modal__close-btn {
   display: flex;
@@ -64,22 +72,24 @@
   fill: #4c00fe;
 }
 .modal__buy-btn {
-    width: 145px;
-height: 40px;
-padding: 9px 19px 11px;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
+  width: 145px;
+  height: 40px;
+  padding: 9px 19px 11px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
 
-background: #4C00FE;
-border-radius: 5px;
-color: #FFFFFF;
+  background: #4c00fe;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 .modal__more-btn {
-  width: 224px;
+  width: 230px;
   height: 40px;
   padding: 10px 3px;
+
+  margin-top: 24px;
 
   text-transform: uppercase;
   color: #4c00fe;
@@ -90,6 +100,28 @@ color: #FFFFFF;
 
   cursor: pointer;
 }
+
+.big-modal-img {
+  display: none;
+  
+
+  @include media-query(tablet) {
+    display: block;
+    width: 249px;
+    height: 445px;
+  }
+  @include media-query(desktop) {
+    width: 427px;
+    height: 664px;
+  }
+}
+.modal-img {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
 .info-title {
   text-transform: uppercase;
   font-weight: 600;
@@ -97,11 +129,28 @@ color: #FFFFFF;
   line-height: 1.2;
   text-align: center;
   color: #dc56c5;
+  margin-bottom: 5px;
+}
+.price {
+  margin-bottom: 8px;
 }
 .info-text {
-    font-weight: 400;
-font-size: 16px;
-line-height: 1.25;
-text-align: center;
-color: #0E0E0E;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: #0e0e0e;
+  margin-bottom: 16px;
+}
+.vip {
+  margin-top: 16px;
+  // margin-bottom: 16px;
+}
+.zip-code {
+width: 24px;
+height: 16px;
+margin-right: 13px;
+}
+.group{
+  display: flex;
 }
