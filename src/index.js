@@ -9,21 +9,27 @@ const form = document.querySelector('form');
 
 const gallaryList = document.querySelector('.gallery-list-js');
 
-form.addEventListener('input', onInputSearch);
+form.addEventListener('submit', onInputSearch);
 
-function onInputSearch(event) {
+async function onInputSearch(event) {
+  event.preventDefault();
   discovery.query = event.currentTarget.elements.search_event.value;
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
+  try {
+    const response = discovery.discoveryEventsSerch();
+    response.then(results => {
+      if (!results.data._embedded) {
+        return console.log('Error');
+      }
+      const serchParam = results.data._embedded.events;
+      console.log(results.data._embedded.events);
 
-  const response = discovery.discoveryEventsSerch();
-  response.then(results => {
-    console.log(results.data._embedded.events);
-    // if (discovery.queryCountry === '') {
-    //   return;
-    // }
-    renderEvents(results.data._embedded.events);
-  });
+      renderEvents(serchParam);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderEvents(results) {

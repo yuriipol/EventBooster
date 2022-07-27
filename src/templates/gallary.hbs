@@ -16,12 +16,15 @@
     <p class='gallery__years'>{{this.dates.start.localDate}}</p>
     {{#each this._embedded.venues}}
       <p class='gallery__location'>
-        <img
+        <svg class='gallery__icon' width='7' height='10'>
+          <use href='../images/location.svg'></use>
+        </svg>
+        {{! <img
           class='gallery__icon'
-          src='../images/location.svg'
+          src='./images/location.svg'
           alt='location'
           loading='lazy'
-        />
+        /> }}
         {{this.country.name}}
       </p>
     {{/each}}

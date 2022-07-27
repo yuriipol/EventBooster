@@ -9,23 +9,20 @@
           placeholder="Start searching"
           class="form-input"
         />
-        <svg class="form__icon" width="12" height="12">
-          <use href="./images/header/symbol-defs.svg#icon-search"></use>
-        </svg>
+        <button type="submit">
+          <svg class="form__icon" width="12" height="12">
+            <use href="./images/header/symbol-defs.svg#icon-search"></use>
+          </svg>
+        </button>
       </div>
 
       <div class="form__field">
-        <!-- <input
-          type="text"
-          name="search_country"
-          placeholder="Choose country"
-          class="form-input"
-        /> -->
         <select
-          class="form-select"
+          class="form-input"
           name="search_country"
           placeholder="Choose country"
         >
+          <option value="" disabled selected hidden>Choose country...</option>
           <option value="US">United States Of America</option>
           <option value="AD">Andorra</option>
           <option value="AI">Anguilla</option>

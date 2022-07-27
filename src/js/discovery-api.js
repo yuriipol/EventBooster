@@ -9,9 +9,9 @@ export default class DiscoveryEventsSerch {
   constructor() {
     this.searchQuery = '';
     this.searchQueryCountry = '';
-    this.page = 1;
+    // this.page = 1;
     this.size = 32;
-    this.totalHits = null;
+    // this.totalHits = null;
   }
   //создаем метод (делаем его асинхронным), с помощью которого будем делать запросы на сервер
   async discoveryEventsSerch() {
