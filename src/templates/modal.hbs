@@ -1,34 +1,34 @@
 <div class="modal-card">
-    <img src="{{this.images.url}" alt="{{this.name}}" width="102" height="102" loading="lazy" class="modal-img"/>
+    {{!-- <img src="{{this.image}}" alt="" width="102" height="102" loading="lazy" class="modal-img"/> --}}
   <div class="info">
     <b class="info-title">Info</b>
     <p class="info-text">
-       {{this.events.info}}
+       {{this.info}}
     </p>
     <b class="info-title">When</b>
     <p class="info-text">
-       {{this.dates.start.localDate}}
-       {{this.dates.start.localTime}}
+       {{this.date}}
+        {{this.time}}
     </p>
     <b class="info-title">Where</b>
     <p class="info-text">
-       {{this.place}}
+       {{this.name}}
     </p>
     <b class="info-title">Who</b>
-    <p class="info-text">
+    <p class="info-text"> 
        {{this.name}}
     </p>
     <b class="info-title">Prices</b> 
     <img src="src/images/ticket.svg" alt="zip-code">
      <p class="info-text">
-      {{this.events}}
+      {{this.priceRanges}}
       </p>
       <a href="{{this.url}}">
         <button class="modal__buy-btn" type="button">Buy tickets</button>
       </a>
       <img src="src/images/ticket.svg" alt="zip-code">
      <p class="info-text">
-      {{this.events}}
+      {{this.priceRanges}}
       </p>
       <a href="{{this.events.url}}">
         <button class="modal__buy-btn" type="button">Buy tickets</button>
@@ -36,3 +36,12 @@
     
   </div>
 </div>
+
+   {{#if @first}}
+          <img
+            class='galleryimg'
+            src='{{this.url}}'
+            alt='poster'
+            loading='lazy'
+          />
+        {{/if}}
