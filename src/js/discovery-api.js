@@ -10,7 +10,7 @@ export default class DiscoveryEventsSerch {
     this.searchQuery = '';
     this.searchQueryCountry = '';
     // this.page = 1;
-    this.size = 32;
+    this.size = 16;
     // this.totalHits = null;
   }
   //создаем метод (делаем его асинхронным), с помощью которого будем делать запросы на сервер
