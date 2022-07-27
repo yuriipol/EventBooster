@@ -27,7 +27,7 @@ export default class DiscoveryEventsSerch {
 // ф-я для модалки
   async discoveryModalSerch() {
     //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
-    const request = await axios.get(`${this.#SECOND_URL}/Z7r9jZ1AdFw7g`, {
+    const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
       params: {
         apikey: this.#API_KEY,
         // id: 'Z7r9jZ1AdFw7g',
