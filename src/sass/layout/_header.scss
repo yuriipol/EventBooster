@@ -139,7 +139,7 @@
     margin-right: auto;
   }
   @include media-query(tablet) {
-    position: relative;
+    width: 336px;
 
     margin-left: 0;
     margin-right: 0;
@@ -148,7 +148,7 @@
     }
   }
   @include media-query(desktop) {
-    min-width: 288px;
+    width: 288px;
     &:not(:last-child) {
       margin-right: 32px;
     }

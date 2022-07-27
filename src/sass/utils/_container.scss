@@ -5,7 +5,7 @@
   padding-left: 20px;
   padding-right: 20px;
   @include media-query(responsive) {
-    width: $mobile;
+    // width: $mobile;
   }
   @include media-query(tablet) {
     padding-left: 32px;
