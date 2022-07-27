@@ -1,5 +1,6 @@
 import DiscoveryEventsSerch from './js/discovery-api';
 import gallary from './templates/gallary.hbs';
+import Pagination from 'tui-pagination';
 
 const discovery = new DiscoveryEventsSerch();
 
@@ -38,5 +39,13 @@ function responseSerch() {
     console.log(results.data._embedded.events);
 
     renderEvents(serchParam);
+
+    const container = document.getElementById('tui-pagination-container');
+    const instance = new Pagination(container, {
+      totalItems: 500,
+      itemsPerPage: 10,
+      visiblePages: 5,
+    });
+    instance.getCurrentPage();
   });
 }
