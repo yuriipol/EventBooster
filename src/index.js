@@ -4,7 +4,7 @@ import gallary from './templates/gallary.hbs';
 const discovery = new DiscoveryEventsSerch();
 
 //отрисовка main-list
-const inputSearchEl = document.querySelector('.form-input');
+responseSerch();
 const form = document.querySelector('form');
 
 const gallaryList = document.querySelector('.gallery-list-js');
@@ -17,16 +17,7 @@ async function onInputSearch(event) {
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
   try {
-    const response = discovery.discoveryEventsSerch();
-    response.then(results => {
-      if (!results.data._embedded) {
-        return console.log('Error');
-      }
-      const serchParam = results.data._embedded.events;
-      console.log(results.data._embedded.events);
-
-      renderEvents(serchParam);
-    });
+    responseSerch();
   } catch (error) {
     console.log(error);
   }
@@ -35,4 +26,17 @@ async function onInputSearch(event) {
 function renderEvents(results) {
   const event = gallary(results);
   gallaryList.innerHTML = event;
+}
+
+function responseSerch() {
+  const response = discovery.discoveryEventsSerch();
+  response.then(results => {
+    if (!results.data._embedded) {
+      return console.log('Error');
+    }
+    const serchParam = results.data._embedded.events;
+    console.log(results.data._embedded.events);
+
+    renderEvents(serchParam);
+  });
 }
