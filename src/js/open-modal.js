@@ -21,6 +21,8 @@ const onEscBtnPush = event => {
   if (event.code !== 'Escape') {
     return;
   }
+  backdropEl.classList.toggle('is-hidden');
+  backdropEl.classList.remove('tilt-in-fwd-tr');
 };
 window.addEventListener('keydown', onEscBtnPush);
 // Закриття по кліку на backdrop
@@ -31,11 +33,12 @@ function closeModal(event) {
     return;
   }
   backdropEl.classList.toggle('is-hidden');
-  backdropEl.classList.remove('flip-in-hor-top');
+  backdropEl.classList.remove('tilt-in-fwd-tr');
 }
 // Закриття по кнопці
 function toggleModal() {
   backdropEl.classList.toggle('is-hidden');
+  backdropEl.classList.remove('tilt-in-fwd-tr');
 }
 
 async function openModal(event) {
@@ -44,17 +47,22 @@ async function openModal(event) {
   }
 
   backdropEl.classList.toggle('is-hidden');
-
+  backdropEl.classList.add('tilt-in-fwd-tr');
   const response = await discovery.discoveryModalSerch(event.target.dataset.id);
   console.log(response);
-
-  const atribute = response.data._embedded.attractions[0].id;
-  console.log(atribute);
-  btnAuthor.setAttribute('data', atribute);
 
   const modalConfig = creatParamObj(response.data);
 
   renderModal(modalConfig);
+
+  try {
+    const atribute = response.data._embedded.attractions[0].id;
+    console.log(atribute);
+    btnAuthor.setAttribute('data', atribute);
+  } catch (error) {
+    console.log(error);
+    return;
+  }
 }
 
 function creatParamObj(data) {
@@ -102,6 +110,10 @@ function onClickBtnAuthor() {
   const promise = discovery.discoveryEventsSerch(valueBtn);
   promise.then(results => {
     console.log(results);
+    if (results.data._embedded === undefined) {
+      console.log('Error>>>> нет events!!!');
+      return;
+    }
     renderEvents(results.data._embedded.events);
   });
 
