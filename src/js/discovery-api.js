@@ -25,12 +25,14 @@ export default class DiscoveryEventsSerch {
         keyword: this.searchQuery,
         countryCode: this.searchQueryCountry,
         size: this.size,
+        page: this.page,
       },
     });
     return request;
   }
   // ф-я для модалки
   async discoveryModalSerch() {
+
     
     const request = await axios.get(`${this.#SECOND_URL}/Z7r9jZ1AdFw7g`, {
       params: {
