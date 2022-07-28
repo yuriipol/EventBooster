@@ -1,28 +1,28 @@
 import DiscoveryEventsSerch from './discovery-api';
 import markupModal from '../templates/modal.hbs';
 (() => {
-    const refs = {
-      openModalLi: document.querySelector("[data-modal-open]"),
-      closeModalBtn: document.querySelector("[data-modal-close]"),
-      modal: document.querySelector("[data-modal]"),
-    };
-  
-    refs.openModalLi.addEventListener("click", toggleModal);
-    refs.closeModalBtn.addEventListener("click", toggleModal);
-  
-    function toggleModal() {
-      refs.modal.classList.toggle("is-hidden");
-      renderModal();
-    }
-// Закриття по Esc
-const onEscBtnPush = event => {
-  if (event.code !== 'Escape') {
-    return;
+  const refs = {
+    openModalLi: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
+  };
+
+  refs.openModalLi.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+    renderModal();
   }
-  refs.modal.classList.toggle("is-hidden");
-};
-window.addEventListener('keydown', onEscBtnPush);
-  })();
+  // Закриття по Esc
+  const onEscBtnPush = event => {
+    if (event.code !== 'Escape') {
+      return;
+    }
+    refs.modal.classList.toggle('is-hidden');
+  };
+  window.addEventListener('keydown', onEscBtnPush);
+})();
 
 const openModalLiEl = document.querySelector('[data-modal-open]');
 const closeModalBtnEl = document.querySelector('[data-modal-close]');
@@ -55,7 +55,7 @@ response.then(results => {
   // objModal.info = 'will be avalible soon';
   // if (!objModal.info) {
   //   objModal.info = 'will be avalible soon';
-  // } 
+  // }
   objModal.info = results.data.info;
   objModal.city = results.data._embedded.venues[0].city.name;
   objModal.country = results.data._embedded.venues[0].country.name;
@@ -67,6 +67,7 @@ response.then(results => {
   objModal.priceMax = results.data.priceRanges[0].max;
   objModal.currency = results.data.priceRanges[0].currency;
   objModal.link = results.data.url;
+});
 
 function toggleModal() {
   backdropEl.classList.toggle('is-hidden');
