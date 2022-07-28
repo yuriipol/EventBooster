@@ -17,7 +17,7 @@ export default class DiscoveryEventsSerch {
   }
 
   //создаем метод (делаем его асинхронным), с помощью которого будем делать запросы на сервер
-  async discoveryEventsSerch() {
+  async discoveryEventsSerch(id) {
     //с помощью бибиотеки axios, делаем запрос, в котором 2-м аргументом прокидываем параметры запроса
     const request = await axios.get(`${this.#BASE_URL}`, {
       params: {
@@ -26,6 +26,7 @@ export default class DiscoveryEventsSerch {
         countryCode: this.searchQueryCountry,
         size: this.size,
         page: this.page,
+        attractionId: id,
       },
     });
     return request;
@@ -39,6 +40,7 @@ export default class DiscoveryEventsSerch {
     });
     return request;
   }
+
   //создаем метод увелчения страниц на 1
   incrementPage() {
     this.page += 1;

@@ -41,7 +41,7 @@ async function onInputSearch(event) {
   }
 }
 
-function renderEvents(results) {
+export function renderEvents(results) {
   const event = gallary(results);
   gallaryList.innerHTML = event;
 }

@@ -1,16 +1,20 @@
 import DiscoveryEventsSerch from './discovery-api';
 import markupModal from '../templates/modal.hbs';
 
+import { renderEvents } from '../index';
+
 const openModalLiEl = document.querySelector('[data-modal-open]');
 const closeModalBtnEl = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
 const modalCardEl = document.querySelector('.js-modal-card');
+const btnAuthor = document.querySelector('.modal__more-btn');
 
 const discovery = new DiscoveryEventsSerch();
 
 openModalLiEl.addEventListener('click', openModal);
 closeModalBtnEl.addEventListener('click', toggleModal);
 backdropEl.addEventListener('click', toggleModal);
+btnAuthor.addEventListener('click', onClickBtnAuthor);
 
 // Закриття по Esc
 const onEscBtnPush = event => {
@@ -22,6 +26,7 @@ const onEscBtnPush = event => {
 window.addEventListener('keydown', onEscBtnPush);
 // Закриття по кліку на backdrop
 backdropEl.addEventListener('click', closeModal);
+
 function closeModal(event) {
   if (event.currentTarget === event.target) {
     return;
@@ -37,10 +42,15 @@ async function openModal(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
+
   backdropEl.classList.toggle('is-hidden');
 
   const response = await discovery.discoveryModalSerch(event.target.dataset.id);
-  console.log('~ response', response);
+  console.log(response);
+
+  const atribute = response.data._embedded.attractions[0].id;
+  console.log(atribute);
+  btnAuthor.setAttribute('data', atribute);
 
   const modalConfig = creatParamObj(response.data);
 
@@ -83,4 +93,17 @@ async function renderModal(modalConfig) {
   } catch (err) {
     console.log(err);
   }
+}
+
+function onClickBtnAuthor() {
+  const valueBtn = btnAuthor.getAttribute('data');
+  console.log('~ valueBtn', valueBtn);
+
+  const promise = discovery.discoveryEventsSerch(valueBtn);
+  promise.then(results => {
+    console.log(results);
+    renderEvents(results.data._embedded.events);
+  });
+
+  toggleModal();
 }
