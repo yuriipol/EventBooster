@@ -12,6 +12,14 @@
       refs.modal.classList.toggle("is-hidden");
       renderModal();
     }
+// Закриття по Esc
+const onEscBtnPush = event => {
+  if (event.code !== 'Escape') {
+    return;
+  }
+  refs.modal.classList.toggle("is-hidden");
+};
+window.addEventListener('keydown', onEscBtnPush);
   })();
 
 const objModal = {};
@@ -27,7 +35,7 @@ response.then(results => {
   objModal.date = results.data.dates.start.localDate;
   objModal.time = results.data.dates.start.localTime;
   objModal.image = results.data.images[1].url;
-  objModal.imageBig = results.data.images[7].url;
+  objModal.imageBig = results.data.images[2].url;
   // objModal.info = 'will be avalible soon';
   // if (!objModal.info) {
   //   objModal.info = 'will be avalible soon';
@@ -55,8 +63,6 @@ response.then(results => {
   return objModal;
 });
 
-
-
 const modalEl = document.querySelector('.js-modal-card');
 import markupModal from '../templates/modal.hbs';
 
@@ -64,21 +70,12 @@ async function renderModal() {
   try {
     const response = await discovery.discoveryModalSerch() ;
     console.log(response);
-
-    // якщо немає інфо 'will be avalible soon'
     
     modalEl.innerHTML = markupModal(objModal);
   
 }
-
 catch (err) {
     console.log(err);
   }
 }
-// console.log(response.data)
-// const abc = Object.values(response.data.page)
-// console.log(abc)
-// function renderCountry(countries) {
-//   countries.languages = Object.values(countries.languages).join(', ');
-//   const country = templateCountry(countries);
-//   countryInfo.innerHTML = country;
+
