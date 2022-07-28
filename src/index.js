@@ -53,7 +53,6 @@ function responseSerch() {
       return console.log('Error');
     }
     const serchParam = results.data._embedded.events;
-    console.log(results.data._embedded.events);
 
     instance.setTotalItems(results.data.page.totalElements);
     instance._paginate(discovery.page);
@@ -61,3 +60,10 @@ function responseSerch() {
     renderEvents(serchParam);
   });
 }
+
+const paginationEl = document.querySelector('.decoration');
+const removeClassIsHidden = () => {
+  paginationEl.classList.remove('visually-hidden');
+};
+
+setTimeout(removeClassIsHidden, 3000);

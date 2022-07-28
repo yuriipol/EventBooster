@@ -1,5 +1,6 @@
 import DiscoveryEventsSerch from './discovery-api';
 import markupModal from '../templates/modal.hbs';
+import Notiflix from 'notiflix';
 
 import { renderEvents } from '../index';
 
@@ -47,9 +48,9 @@ async function openModal(event) {
   }
 
   backdropEl.classList.toggle('is-hidden');
-backdropEl.classList.add('tilt-in-fwd-tr');
+  backdropEl.classList.add('tilt-in-fwd-tr');
+
   const response = await discovery.discoveryModalSerch(event.target.dataset.id);
-  console.log(response);
 
   const modalConfig = creatParamObj(response.data);
 
@@ -57,11 +58,11 @@ backdropEl.classList.add('tilt-in-fwd-tr');
 
   try {
     const atribute = response.data._embedded.attractions[0].id;
-    console.log(atribute);
+
     btnAuthor.setAttribute('data', atribute);
   } catch (error) {
-    console.log(error)
-    return
+    Notiflix.Notify.warning('Atantion! This Author has no other events!!!');
+    return;
   }
 }
 
@@ -79,7 +80,7 @@ function creatParamObj(data) {
     link: data.url,
     currency: data.priceRanges,
   };
-  console.log(objModal);
+
   if (!objModal.info) {
     objModal.info = 'will be avalible soon';
   }
@@ -105,11 +106,13 @@ async function renderModal(modalConfig) {
 
 function onClickBtnAuthor() {
   const valueBtn = btnAuthor.getAttribute('data');
-  console.log('~ valueBtn', valueBtn);
 
   const promise = discovery.discoveryEventsSerch(valueBtn);
   promise.then(results => {
-    console.log(results);
+    if (results.data._embedded === undefined) {
+      Notiflix.Notify.failure('Atantion! This Author has no other events!!!');
+      return;
+    }
     renderEvents(results.data._embedded.events);
   });
 
