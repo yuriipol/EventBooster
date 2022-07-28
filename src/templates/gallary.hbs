@@ -1,16 +1,15 @@
 {{#each this}}
   <li class='gallery__item'>
     <div class='gallery-box__img'>
-      {{#each this.images}}
-        {{#if @first}}
-          <img
-            class='gallery__img'
-            src='{{this.url}}'
-            alt='poster'
-            loading='lazy'
-          />
-        {{/if}}
-      {{/each}}
+
+      <img
+        class='gallery__img'
+        src='{{this.images.0.url}}'
+        alt='poster'
+        loading='lazy'
+        data-id='{{this.id}}'
+      />
+
     </div>
     <h3 class='gallery__subtitle'>{{this.name}}</h3>
     <p class='gallery__years'>{{this.dates.start.localDate}}</p>

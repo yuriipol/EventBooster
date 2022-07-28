@@ -3,8 +3,8 @@ import axios from 'axios';
 //созаем и экспортируем класс по дефолту
 export default class DiscoveryEventsSerch {
   //объявляем приватные переменные
-  #BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json?';
-  #SECOND_URL = 'https://app.ticketmaster.com/discovery/v2/events';
+
+  #BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
   #API_KEY = 'VpANaFCX5QJo9RhKSicdCJOJBDASVgJi';
   //создаем конструктор и обьявляем перемменные
   constructor() {
@@ -31,13 +31,10 @@ export default class DiscoveryEventsSerch {
     return request;
   }
   // ф-я для модалки
-  async discoveryModalSerch() {
-
-    
-    const request = await axios.get(`${this.#SECOND_URL}/Z7r9jZ1AdFw7g`, {
+  async discoveryModalSerch(eventId) {
+    const request = await axios.get(`${this.#BASE_URL}/${eventId}`, {
       params: {
         apikey: this.#API_KEY,
-        attractionId: this.serchId,
       },
     });
     return request;
