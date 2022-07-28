@@ -12,6 +12,7 @@ export default class DiscoveryEventsSerch {
     this.searchQueryCountry = '';
     this.page = 1;
     this.size = 16;
+    this.serchId = '';
     // this.totalHits = null;
   }
 
@@ -34,7 +35,7 @@ export default class DiscoveryEventsSerch {
     const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
       params: {
         apikey: this.#API_KEY,
-        // id: 'Z7r9jZ1AdFw7g',
+        attractionId: this.serchId,
       },
     });
     return request;
@@ -65,4 +66,12 @@ export default class DiscoveryEventsSerch {
   set queryCountry(newQueryCountry) {
     this.searchQueryCountry = newQueryCountry;
   }
+
+  // get id() {
+  //   return this.serchId;
+  // }
+
+  // set id(newId) {
+  //   this.serchId = newId;
+  // }
 }
