@@ -47,7 +47,7 @@ async function openModal(event) {
   }
 
   backdropEl.classList.toggle('is-hidden');
-backdropEl.classList.add('tilt-in-fwd-tr');
+  backdropEl.classList.add('tilt-in-fwd-tr');
   const response = await discovery.discoveryModalSerch(event.target.dataset.id);
   console.log(response);
 
@@ -60,8 +60,8 @@ backdropEl.classList.add('tilt-in-fwd-tr');
     console.log(atribute);
     btnAuthor.setAttribute('data', atribute);
   } catch (error) {
-    console.log(error)
-    return
+    console.log(error);
+    return;
   }
 }
 
@@ -110,6 +110,10 @@ function onClickBtnAuthor() {
   const promise = discovery.discoveryEventsSerch(valueBtn);
   promise.then(results => {
     console.log(results);
+    if (results.data._embedded === undefined) {
+      console.log('Error>>>> нет events!!!');
+      return;
+    }
     renderEvents(results.data._embedded.events);
   });
 
