@@ -53,7 +53,6 @@ function responseSerch() {
       return console.log('Error');
     }
     const serchParam = results.data._embedded.events;
-    console.log(results.data._embedded.events);
 
     instance.setTotalItems(results.data.page.totalElements);
     instance._paginate(discovery.page);
