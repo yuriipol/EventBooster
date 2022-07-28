@@ -61,3 +61,10 @@ function responseSerch() {
     renderEvents(serchParam);
   });
 }
+
+const paginationEl = document.querySelector('.decoration');
+const removeClassIsHidden = () => {
+  paginationEl.classList.remove('visually-hidden');
+};
+
+setTimeout(removeClassIsHidden, 3000);

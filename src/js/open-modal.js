@@ -21,7 +21,6 @@ const onEscBtnPush = event => {
   if (event.code !== 'Escape') {
     return;
   }
-  backdropEl.classList.toggle('is-hidden');
 };
 window.addEventListener('keydown', onEscBtnPush);
 // Закриття по кліку на backdrop
@@ -32,6 +31,7 @@ function closeModal(event) {
     return;
   }
   backdropEl.classList.toggle('is-hidden');
+  backdropEl.classList.remove('flip-in-hor-top');
 }
 // Закриття по кнопці
 function toggleModal() {
