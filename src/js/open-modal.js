@@ -5,12 +5,13 @@ const openModalLiEl = document.querySelector('[data-modal-open]');
 const closeModalBtnEl = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
 const modalCardEl = document.querySelector('.js-modal-card');
+const modalEl = document.querySelector('modal');
 
 const discovery = new DiscoveryEventsSerch();
 
 openModalLiEl.addEventListener('click', openModal);
 closeModalBtnEl.addEventListener('click', toggleModal);
-
+backdropEl.addEventListener('click', toggleModal);
 // Закриття по Esc
 const onEscBtnPush = event => {
   if (event.code !== 'Escape') {
@@ -19,6 +20,18 @@ const onEscBtnPush = event => {
   backdropEl.classList.toggle("is-hidden");
 };
 window.addEventListener('keydown', onEscBtnPush);
+
+// Закриття по кліку на backdrop
+backdropEl.addEventListener('click', closeModal);
+function closeModal(event) {
+  if (event.currentTarget === event.target)
+  {return}
+  backdropEl.classList.toggle("is-hidden");
+}
+// Закриття по кнопці
+function toggleModal() {
+  backdropEl.classList.toggle('is-hidden');
+}
 
 const objModal = {};
 function openModal(event) {
@@ -30,9 +43,6 @@ function openModal(event) {
   creatParamObj();
 
   renderModal();
-}
-function toggleModal() {
-  backdropEl.classList.toggle('is-hidden');
 }
 function creatParamObj() {
   const response = discovery.discoveryModalSerch();
