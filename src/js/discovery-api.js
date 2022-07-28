@@ -32,7 +32,7 @@ export default class DiscoveryEventsSerch {
   // ф-я для модалки
   async discoveryModalSerch() {
     
-    const request = await axios.get(`${this.#SECOND_URL}/k7vGF9anxhJp5`, {
+    const request = await axios.get(`${this.#SECOND_URL}/Z7r9jZ1AdFw7g`, {
       params: {
         apikey: this.#API_KEY,
         attractionId: this.serchId,
