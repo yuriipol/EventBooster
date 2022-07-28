@@ -34,6 +34,7 @@
   @include media-query(tablet) {
     padding-top: 40px;
     padding-bottom: 170px;
+
     background-image: url(../images/header/logo.svg),
       url(../images/header/bg_logo_md.png),
       linear-gradient(
@@ -83,6 +84,29 @@
     background-size: 229px 193px, 229px 193px, cover, cover;
     background-repeat: no-repeat;
     background-position: top 0 left 0, top 0 left 0, center, center;
+
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 115px;
+      width: 1px;
+      height: 282px;
+      background-color: #212121;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 115px;
+      width: 1px;
+      height: 100%;
+      background-color: #212121;
+    }
   }
 }
 

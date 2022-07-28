@@ -10,6 +10,32 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.main {
+  @include media-query(desktop) {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 115px;
+      width: 1px;
+      height: 100%;
+      background-color: #212121;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 115px;
+      width: 1px;
+      height: 100%;
+      background-color: #212121;
+    }
+  }
+}
+
 .gallery__container {
   @include media-query(tablet) {
     background-image: url(../images/triangle.svg), url(../images/big_middle.svg),
@@ -21,14 +47,16 @@
     background-size: 240px 240px, 125px 125px, 80px 80px, 125px 125px, 80px 80px;
   }
   @include media-query(desktop) {
-    background-image: url(../images/triangle.svg), url(../images/big_middle.svg),
+    background-image: url(../images/triangle.svg),
+      url(../images/triangle-right.svg), url(../images/big_middle.svg),
       url(../images/small_middle.svg), url(../images/big_middle.svg),
-      url(../images/small_middle.svg);
+      url(../images/small_middle.svg), url(../images/triangle.svg);
     background-repeat: no-repeat;
-    background-position: bottom 50% right 20px, top 106px left 23px,
-      top 130px left 46px, bottom 0px right 25px, bottom 22px right 47px;
-    background-size: 333px 333px, 216px 216px, 136px 136px, 216px 216px,
-      136px 136px;
+    background-position: top 450px right 20px, bottom 653px left 20px,
+      top 373px left 7px, top 413px left 48px, bottom 653px right 25px,
+      bottom 693px right 60px, bottom 110px right 20px;
+    background-size: 333px 333px, 333px 333px, 216px 216px, 136px 136px,
+      216px 216px, 136px 136px, 333px 333px;
   }
 }
 .overflow-hidden {
