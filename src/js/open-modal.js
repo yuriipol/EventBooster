@@ -10,6 +10,7 @@ const discovery = new DiscoveryEventsSerch();
 
 openModalLiEl.addEventListener('click', openModal);
 closeModalBtnEl.addEventListener('click', toggleModal);
+backdropEl.addEventListener('click', toggleModal);
 
 // Закриття по Esc
 const onEscBtnPush = event => {
@@ -18,14 +19,17 @@ const onEscBtnPush = event => {
   }
   backdropEl.classList.toggle('is-hidden');
 };
-
 window.addEventListener('keydown', onEscBtnPush);
-
+// Закриття по кліку на backdrop
 backdropEl.addEventListener('click', closeModal);
 function closeModal(event) {
   if (event.currentTarget === event.target) {
     return;
   }
+  backdropEl.classList.toggle('is-hidden');
+}
+// Закриття по кнопці
+function toggleModal() {
   backdropEl.classList.toggle('is-hidden');
 }
 
@@ -42,34 +46,35 @@ async function openModal(event) {
 
   renderModal(modalConfig);
 }
-function toggleModal() {
-  backdropEl.classList.toggle('is-hidden');
-}
+
 function creatParamObj(data) {
-  // objModal.info = results.data.info;
-  // objModal.name = results.data.name;
-  // objModal.date = results.data.dates.start.localDate;
-  // objModal.time = results.data.dates.start.localTime;
-  // objModal.image = results.data.images[1].url;
-  // objModal.imageBig = results.data.images[2].url;
-  // objModal.city = results.data._embedded.venues[0].city.name;
-  // objModal.country = results.data._embedded.venues[0].country.name;
-  // objModal.location = results.data._embedded.venues[0].name;
-  // objModal.link = results.data.url;
-  // objModal.priceMin = results.data.priceRanges;
-  // if (!objModal.currency) {
-  //   objModal.currency = 'will be avalible soon';
-  // } else {
-  // objModal.priceMin = results.data.priceRanges[0].min;
-  // objModal.priceMax = results.data.priceRanges[0].max;
-  // objModal.currency = results.data.priceRanges[0].currency;
-  // }
+  const objModal = {
+    info: data.info,
+    name: data.name,
+    date: data.dates.start.localDate,
+    time: data.dates.start.localTime,
+    image: data.images[1].url,
+    imageBig: data.images[2].url,
+    city: data._embedded.venues[0].city.name,
+    country: data._embedded.venues[0].country.name,
+    location: data._embedded.venues[0].name,
+    link: data.url,
+    currency: data.priceRanges,
+  };
+  console.log(objModal);
+  if (!objModal.info) {
+    objModal.info = 'will be avalible soon';
+  }
 
-  // if (!objModal.info) {
-  //   objModal.info = 'will be avalible soon';
-  // }
+  if (!objModal.currency) {
+    objModal.currency = 'will be avalible soon';
+  } else {
+    objModal.priceMin = data.priceRanges[0].min;
+    objModal.priceMax = data.priceRanges[0].max;
+    objModal.currency = data.priceRanges[0].currency;
+  }
 
-  return { image: data.images[1].url, imageBig: data.images[2].url };
+  return objModal;
 }
 
 async function renderModal(modalConfig) {
