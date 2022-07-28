@@ -1,5 +1,28 @@
 import DiscoveryEventsSerch from './discovery-api';
 import markupModal from '../templates/modal.hbs';
+(() => {
+    const refs = {
+      openModalLi: document.querySelector("[data-modal-open]"),
+      closeModalBtn: document.querySelector("[data-modal-close]"),
+      modal: document.querySelector("[data-modal]"),
+    };
+  
+    refs.openModalLi.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+  
+    function toggleModal() {
+      refs.modal.classList.toggle("is-hidden");
+      renderModal();
+    }
+// Закриття по Esc
+const onEscBtnPush = event => {
+  if (event.code !== 'Escape') {
+    return;
+  }
+  refs.modal.classList.toggle("is-hidden");
+};
+window.addEventListener('keydown', onEscBtnPush);
+  })();
 
 const openModalLiEl = document.querySelector('[data-modal-open]');
 const closeModalBtnEl = document.querySelector('[data-modal-close]');
@@ -23,6 +46,27 @@ function openModal(event) {
 
   renderModal();
 }
+response.then(results => {
+  objModal.name = results.data.name;
+  objModal.date = results.data.dates.start.localDate;
+  objModal.time = results.data.dates.start.localTime;
+  objModal.image = results.data.images[1].url;
+  objModal.imageBig = results.data.images[2].url;
+  // objModal.info = 'will be avalible soon';
+  // if (!objModal.info) {
+  //   objModal.info = 'will be avalible soon';
+  // } 
+  objModal.info = results.data.info;
+  objModal.city = results.data._embedded.venues[0].city.name;
+  objModal.country = results.data._embedded.venues[0].country.name;
+  objModal.location = results.data._embedded.venues[0].name;
+  // if (!objModal.priceMin) {
+  //   objModal.priceMin = 'will be avalible soon';
+  // }
+  objModal.priceMin = results.data.priceRanges[0].min;
+  objModal.priceMax = results.data.priceRanges[0].max;
+  objModal.currency = results.data.priceRanges[0].currency;
+  objModal.link = results.data.url;
 
 function toggleModal() {
   backdropEl.classList.toggle('is-hidden');

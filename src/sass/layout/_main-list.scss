@@ -10,8 +10,7 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
-.gallery {
+.gallery__container {
   @include media-query(tablet) {
     background-image: url(../images/triangle.svg), url(../images/big_middle.svg),
       url(../images/small_middle.svg), url(../images/big_middle.svg),
@@ -22,26 +21,29 @@
     background-size: 240px 240px, 125px 125px, 80px 80px, 125px 125px, 80px 80px;
   }
   @include media-query(desktop) {
-    grid-template-columns: repeat(4, 288px);
-    grid-column-gap: 32px;
-    grid-row-gap: 40px;
+    background-image: url(../images/triangle.svg), url(../images/big_middle.svg),
+      url(../images/small_middle.svg), url(../images/big_middle.svg),
+      url(../images/small_middle.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 50% right 20px, top 106px left 23px,
+      top 130px left 46px, bottom 0px right 25px, bottom 22px right 47px;
+    background-size: 333px 333px, 216px 216px, 136px 136px, 216px 216px,
+      136px 136px;
   }
 }
-
 .overflow-hidden {
   overflow: hidden;
 }
-
 .gallery__list {
+  margin-top: -47px;
   display: grid;
   grid-template-columns: repeat(2, 130px);
   grid-column-gap: 20px;
   grid-row-gap: 32px;
-
   justify-content: center;
   margin-bottom: 60px;
-
   @include media-query(tablet) {
+    margin-top: -74px;
     grid-template-columns: repeat(4, 152px);
     grid-column-gap: 32px;
   }
@@ -51,29 +53,22 @@
     grid-row-gap: 40px;
   }
 }
-
 .gallery__item {
   position: relative;
   z-index: 1;
-
   padding-top: 10px;
   padding-right: 9px;
-
   text-align: center;
-
   &::before {
     content: '';
     position: absolute;
     z-index: -1;
-
     top: 0;
     right: 0;
     width: 102px;
     height: 95px;
-
     border: 1px solid rgba(220, 86, 197, 0.3);
     border-radius: 50px 0px;
-
     transition: background-color $transition;
     @include media-query(tablet) {
       width: 120px;
@@ -88,7 +83,6 @@
   &:focus::before {
     background-color: $color-secondary;
   }
-
   &:hover .gallery__img,
   &:focus .gallery__img {
     outline: 1px solid $color-secondary;
@@ -100,82 +94,66 @@
     padding-right: 11px;
   }
 }
-
 .gallery-box__img {
   margin-bottom: 8px;
 }
-
 .gallery__img {
+  height: 151px;
   border-radius: 50px 0;
-
+  object-fit: cover;
   transition: outline $transition;
-}
-
-.gallery__subtitle {
-  margin-bottom: 8px;
-
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  color: $color-secondary;
-
   @include media-query(tablet) {
-    font-size: 16px;
-    line-height: 20px;
+    height: 178px;
+  }
+  @include media-query(desktop) {
+    height: 337px;
   }
 }
-
+.gallery__subtitle {
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  color: $color-secondary;
+  @include media-query(tablet) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
 .gallery__years {
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
-
+  line-height: 1.2;
   margin-bottom: 8px;
   @include media-query(tablet) {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 1.25;
   }
 }
-
 .gallery__location {
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-weight: 600;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 1.25;
   @include media-query(tablet) {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.2;
   }
 }
-
 .gallery__icon {
-  background-color: black;
-
   margin-right: 3px;
-
-  max-width: 6px;
-  max-height: 9px;
-  @include media-query(tablet) {
-    max-width: 7px;
-    max-height: 10px;
-  }
 }
-
 .gallery-page__list {
   display: flex;
   justify-content: center;
 }
-
 .gallery-page__item {
   width: 30px;
-
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
-
+  line-height: 1.2;
   text-align: center;
   &:hover,
   &:focus {
@@ -188,6 +166,6 @@
   }
   @include media-query(tablet) {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 1.25;
   }
 }
