@@ -38,11 +38,14 @@ async function onInputSearch(event) {
   event.preventDefault();
   discovery.page = 1;
   if (
+
     discovery.query === event.currentTarget.elements.search_event.value &&
+
     discovery.queryCountry === event.currentTarget.elements.search_country.value
   ) {
     return;
   }
+
   discovery.query = event.currentTarget.elements.search_event.value;
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
@@ -53,6 +56,8 @@ async function onInputSearch(event) {
     }
 
     responseSerch();
+
+    console.log('FFFFFF');
   } catch (error) {
     console.log(error);
   }
