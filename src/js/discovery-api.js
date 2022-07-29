@@ -9,7 +9,7 @@ export default class DiscoveryEventsSerch {
   //создаем конструктор и обьявляем перемменные
   constructor() {
     this.searchQuery = '';
-    this.searchQueryCountry = '';
+    this.searchQueryCountry = null;
     this.page = 1;
     this.size = 16;
     this.serchId = '';
