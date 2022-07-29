@@ -2,10 +2,16 @@ import DiscoveryEventsSerch from './js/discovery-api';
 import gallary from './templates/gallary.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import customSelect from 'custom-select';
+import 'custom-select/build/custom-select.css';
+import Notiflix from 'notiflix';
 
 const discovery = new DiscoveryEventsSerch();
 
+const mySelect = customSelect(document.querySelector('#mySelect'));
+
 const container = document.getElementById('tui-pagination-container');
+
 const instance = new Pagination(container, {
   totalItems: 0,
   itemsPerPage: discovery.size,
@@ -50,7 +56,7 @@ function responseSerch() {
   const response = discovery.discoveryEventsSerch();
   response.then(results => {
     if (!results.data._embedded) {
-      return console.log('Error');
+      return Notiflix.Notify.warning('In this country no events!');
     }
     const serchParam = results.data._embedded.events;
 
