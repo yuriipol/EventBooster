@@ -19,10 +19,11 @@
       </p>
       <b class='info-title'>When</b>
       <p class='info-text date'>
-        {{this.date}} 
+        {{this.date}}
       </p>
-       <p class='info-text'>
-        {{this.time}} ({{this.city}}/{{this.country}})
+      <p class='info-text'>
+        {{this.time}}
+        ({{this.city}}/{{this.country}})
       </p>
       <b class='info-title'>Where</b>
       <p class='info-text'>
@@ -36,7 +37,7 @@
       </p>
       <b class='info-title price'>Prices</b>
       <div class='price-group'>
-       <div class='zip-code'></div>
+        <div class='zip-code'></div>
         <p class='info-text standart'>Standart
           {{this.priceMin}}
           -
@@ -44,7 +45,7 @@
           {{this.currency}}
         </p>
       </div>
-      <a href='{{this.link}}'>
+      <a href='{{this.link}}' target='_blank' rel='noopener noreferrer'>
         <button class='modal__buy-btn' type='button'>Buy tickets</button>
       </a>
       <div class='price-group vip'>
@@ -52,7 +53,7 @@
         <p class='info-text text-vip'>VIP will be avalible soon
         </p>
       </div>
-      <a href='{{this.link}}'>
+      <a href='{{this.link}}' target='_blank' rel='noopener noreferrer'>
         <button class='modal__buy-btn' type='button'>Buy tickets</button>
       </a>
     </div>

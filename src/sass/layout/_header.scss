@@ -208,7 +208,6 @@
   }
 }
 
-
 .custom-select-opener.desine {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 20px;
@@ -239,7 +238,6 @@
     5px 5px 5px rgb(0 0 0 / 16%), 0 5px 5px #dc56c5;
 }
 
-
 .form-input {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 20px;
@@ -269,8 +267,21 @@
   top: 17px;
   right: 32px;
   z-index: 10;
-  pointer-events: none;
 
+  .form__field:hover &,
+  .form__field:focus-within & {
+    fill: #dc56c5;
+  }
+}
+
+.form__icon__select {
+  fill: #939393;
+  position: absolute;
+
+  top: 17px;
+  right: 32px;
+  z-index: 10;
+  pointer-events: none;
 
   .form__field:hover &,
   .form__field:focus-within & {

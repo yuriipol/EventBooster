@@ -37,11 +37,23 @@ form.addEventListener('submit', onInputSearch);
 async function onInputSearch(event) {
   event.preventDefault();
   discovery.page = 1;
+  if (
+    discovery.queryCountry === event.currentTarget.elements.search_country.value
+  ) {
+    return;
+  }
+  console.log('FFFFFF');
   discovery.query = event.currentTarget.elements.search_event.value;
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
+
   try {
+    if (discovery.query === '') {
+      return;
+    }
     responseSerch();
+
+    console.log('FFFFFF');
   } catch (error) {
     console.log(error);
   }
