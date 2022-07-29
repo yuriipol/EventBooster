@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include media-query(responsive) {
+    // width: $mobile;
+  }
+  @include media-query(tablet) {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: $tablet;
+  }
+  @include media-query(desktop) {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: $desktop;
+  }
+}
+
+.section {
+  padding-bottom: 60px;
+}

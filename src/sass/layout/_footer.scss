@@ -1,0 +1,45 @@
+.footer {
+  background-color: $color-background;
+
+  @include media-query(desktop) {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 115px;
+      width: 1px;
+      height: 100%;
+      background-color: #212121;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 115px;
+      width: 1px;
+      height: 100%;
+      background-color: #212121;
+    }
+  }
+}
+.footer-text {
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 14px;
+  line-height: 1.21;
+  @include media-query(tablet) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  text-align: center;
+  color: #939393;
+}
+
+.footer-heart {
+  color: red;
+}
