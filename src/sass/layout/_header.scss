@@ -86,7 +86,6 @@
     background-position: top 0 left 0, top 0 left 0, center, center;
 
     position: relative;
-
     &::before {
       content: '';
       position: absolute;
@@ -192,8 +191,9 @@
     }
   }
 }
-.custom-select-option.desinse.has-focus.is-selected {
-  background-color: rgba(255, 255, 255, 0.2);
+
+.custom-select-option.desinse.has-focus {
+  background-color: #dc56c5;
 }
 
 .custom-select-opener.desine {
@@ -210,6 +210,16 @@
   color: #939393;
   outline: transparent;
   height: 42px;
+}
+
+.custom-select-container.designed.customSelect.is-open .custom-select-opener {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: left;
+}
+
+.custom-select-container.designed {
+  text-align: left;
 }
 
 .form-input {
@@ -266,4 +276,24 @@
     transform: scale(1.25) translateY(-15px);
     transform-origin: top;
   }
+}
+
+// scroll
+
+.custom-select-panel::-webkit-scrollbar {
+  width: 3px; /* ширина всей полосы прокрутки */
+}
+
+.custom-select-panel::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.custom-select-panel::-webkit-scrollbar-thumb {
+  background: #939393;
+  height: 43px;
+  border-radius: 20px;
+}
+
+.custom-select-panel::-webkit-scrollbar-thumb:hover {
+  background: #dc56c5;
 }
