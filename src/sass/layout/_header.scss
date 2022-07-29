@@ -200,12 +200,14 @@
   background-color: rgba(255, 255, 255, 0.2);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+
   position: revert;
   z-index: 25;
   @include media-query(tablet) {
     position: absolute;
   }
 }
+
 
 .custom-select-opener.desine {
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -229,12 +231,14 @@
 .custom-select-container.designed {
   text-align: left;
 }
+
 .custom-select-opener.desine:focus,
 .custom-select-opener.desine:hover {
   border: 1px solid #dc56c5;
   box-shadow: 5px 5px 5px rgb(0 0 0 / 12%), 0 5px 5px rgb(0 0 0 / 6%),
     5px 5px 5px rgb(0 0 0 / 16%), 0 5px 5px #dc56c5;
 }
+
 
 .form-input {
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -261,10 +265,12 @@
 .form__icon {
   fill: #939393;
   position: absolute;
+
   top: 17px;
   right: 32px;
   z-index: 10;
   pointer-events: none;
+
 
   .form__field:hover &,
   .form__field:focus-within & {
