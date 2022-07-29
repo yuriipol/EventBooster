@@ -65,7 +65,7 @@
 }
 .gallery__list {
   position: relative;
-  top: -35px;
+
   z-index: 1;
   // margin-top: -47px;
   display: grid;
@@ -75,11 +75,15 @@
   justify-content: center;
   margin-bottom: 60px;
   @include media-query(tablet) {
-    // margin-top: -74px;
+    margin-top: -15px;
+
     grid-template-columns: repeat(4, 152px);
     grid-column-gap: 32px;
   }
   @include media-query(desktop) {
+
+    margin-top: -35px;
+
     grid-template-columns: repeat(4, 288px);
     grid-column-gap: 32px;
     grid-row-gap: 40px;
