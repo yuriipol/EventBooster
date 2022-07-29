@@ -195,7 +195,13 @@
 .custom-select-option.desinse.has-focus {
   background-color: #dc56c5;
 }
-
+.custom-select-panel.decor {
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 25;
+}
 .custom-select-opener.desine {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 20px;
@@ -206,18 +212,15 @@
   font-size: 16px;
   line-height: 1.25;
   appearance: none;
-
   color: #939393;
   outline: transparent;
   height: 42px;
 }
-
 .custom-select-container.designed.customSelect.is-open .custom-select-opener {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   text-align: left;
 }
-
 .custom-select-container.designed {
   text-align: left;
 }
