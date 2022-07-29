@@ -38,11 +38,14 @@ async function onInputSearch(event) {
   event.preventDefault();
   discovery.page = 1;
   if (
+
+    discovery.query === event.currentTarget.elements.search_event.value &&
+
     discovery.queryCountry === event.currentTarget.elements.search_country.value
   ) {
     return;
   }
-  console.log('FFFFFF');
+
   discovery.query = event.currentTarget.elements.search_event.value;
 
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
@@ -51,6 +54,7 @@ async function onInputSearch(event) {
     if (discovery.query === '') {
       return;
     }
+
     responseSerch();
 
     console.log('FFFFFF');
@@ -95,5 +99,3 @@ divEl.classList.add('designed');
 spanSelect.classList.add('desine');
 selectOptions.forEach(el => el.classList.add('desinse'));
 selectPanelEl.classList.add('decor');
-
-console.log(`I !love JS`);
