@@ -211,6 +211,12 @@
     margin-bottom: 20px;
   }
 }
+.date {
+  margin-bottom: 3px;
+  @include media-query(desktop) {
+    margin-bottom: 5px;
+  }
+}
 .vip {
   margin-top: 16px;
   @include media-query(desktop) {
