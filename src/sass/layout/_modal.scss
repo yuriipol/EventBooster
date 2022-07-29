@@ -20,7 +20,7 @@
 
 .modal {
   position: absolute;
-  top: 50%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 280px;
@@ -28,7 +28,7 @@
   padding: 80px 25px 100px;
 
   @include media-query(tablet) {
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     width: 704px;
@@ -36,7 +36,7 @@
   }
 
   @include media-query(desktop) {
-    top: 50%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     width: 1034px;
