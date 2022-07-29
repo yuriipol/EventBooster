@@ -117,6 +117,20 @@
   font-weight: 900;
   line-height: 1.22;
   text-transform: uppercase;
+
+  animation: blur 2s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 15px #fff;
+  @keyframes blur {
+    from {
+      text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
+        0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff,
+        0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 50px #fff,
+        0px 0px 50px #fff, 0px 0px 50px #7b96b8, 0px 0px 150px #7b96b8,
+        0px 10px 100px #dc56c5, 0px 10px 100px #dc56c5, 0px 10px 100px #dc56c5,
+        0px 10px 100px #dc56c5, 0px -10px 100px #dc56c5, 0px -10px 100px #dc56c5;
+    }
+  }
+
   @include media-query(mobile) {
     font-size: 18px;
     margin-bottom: 24px;
@@ -179,11 +193,11 @@
   }
 }
 .custom-select-option.desinse.has-focus.is-selected {
-  background-color: #dc56c5;
-}
-.disinse {
   background-color: rgba(255, 255, 255, 0.2);
 }
+// .disinse {
+//   background-color: rgba(255, 255, 255, 0.2);
+// }
 .custom-select-opener.desine {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 20px;
