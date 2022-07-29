@@ -73,3 +73,8 @@ const removeClassIsHidden = () => {
 };
 
 setTimeout(removeClassIsHidden, 3000);
+
+const spanSelect = document.querySelector('.custom-select-opener');
+const selectOptions = document.querySelector('.custom-select-option');
+spanSelect.classList.add('desine');
+selectOptions.classList.add('desinse');

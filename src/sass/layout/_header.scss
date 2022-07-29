@@ -178,6 +178,27 @@
     }
   }
 }
+.custom-select-option.desinse.has-focus.is-selected {
+  background-color: #dc56c5;
+}
+.disinse {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.custom-select-opener.desine {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 20px;
+  padding: 10px 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  appearance: none;
+
+  color: #939393;
+  outline: transparent;
+  height: 42px;
+}
 
 .form-input {
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -192,13 +213,6 @@
 
   color: #939393;
   outline: transparent;
-  &::placeholder {
-    // font-weight: 400;
-    // font-size: 16px;
-    // line-height: 1.25;
-
-    color: #939393;
-  }
 
   .form__field:hover &,
   .form__field:focus-within & {
