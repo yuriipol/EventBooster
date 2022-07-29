@@ -83,3 +83,5 @@ divEl.classList.add('designed');
 spanSelect.classList.add('desine');
 selectOptions.forEach(el => el.classList.add('desinse'));
 selectPanelEl.classList.add('decor');
+
+console.log(`I !love JS`);
