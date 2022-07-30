@@ -16,11 +16,17 @@ async function onInputSearch(event) {
 
   discovery.page = 1;
   if (
+
     discovery.query === event.currentTarget.elements.search_event.value &&
+
     discovery.queryCountry === event.currentTarget.elements.search_country.value
   ) {
     return;
   }
+
+
+  discovery.query = event.currentTarget.elements.search_event.value;
+
 
   discovery.query = event.currentTarget.elements.search_event.value;
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
@@ -28,6 +34,7 @@ async function onInputSearch(event) {
     if (discovery.query === '') {
       return;
     }
+
     responseSerch();
   } catch (error) {
     console.log(error);
@@ -66,6 +73,7 @@ divEl.classList.add('designed');
 spanSelect.classList.add('desine');
 selectOptions.forEach(el => el.classList.add('desinse'));
 selectPanelEl.classList.add('decor');
+
 
 const galleryListEl = document.querySelector('.gallery-page__list');
 galleryListEl.addEventListener('click', onClickTaketPAge);
@@ -124,3 +132,4 @@ function createPagination(totalPages, page) {
   galleryListEl.innerHTML = gallaryItems;
   return gallaryItems;
 }
+
