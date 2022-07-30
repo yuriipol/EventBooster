@@ -32,6 +32,7 @@ async function onInputSearch(event) {
   ) {
     return;
   }
+
   discovery.query = event.currentTarget.elements.search_event.value;
   discovery.queryCountry = event.currentTarget.elements.search_country.value;
   try {
