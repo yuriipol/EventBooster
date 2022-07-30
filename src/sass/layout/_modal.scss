@@ -22,23 +22,17 @@
 .modal {
   position: absolute;
 
-
   top: 51%;
-
 
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 280px;
-  // min-height: 100%;
-  // max-height: 2000px;
 
   text-align: center;
   padding: 80px 25px 100px;
 
   @include media-query(tablet) {
-
     top: 51%;
-
 
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
@@ -47,9 +41,7 @@
   }
 
   @include media-query(desktop) {
-
     top: 51%;
-
 
     left: 50%;
     transform: translate(-50%, -50%) scale(1);

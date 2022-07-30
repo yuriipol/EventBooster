@@ -1,23 +1,11 @@
 import DiscoveryEventsSerch from './js/discovery-api';
 import gallary from './templates/gallary.hbs';
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 import customSelect from 'custom-select';
 import 'custom-select/build/custom-select.css';
 import Notiflix from 'notiflix';
 const discovery = new DiscoveryEventsSerch();
 const mySelect = customSelect(document.querySelector('#mySelect'));
-// const container = document.getElementById('tui-pagination-container');
-// const instance = new Pagination(container, {
-//   totalItems: 0,
-//   itemsPerPage: discovery.size,
-//   visiblePages: 5,
-// });
-// instance.on('afterMove', event => {
-//   const currentPage = event.page;
-//   discovery.page = currentPage;
-//   responseSerch();
-// });
+
 //отрисовка main-list
 responseSerch();
 const form = document.querySelector('form');
@@ -25,6 +13,7 @@ const gallaryList = document.querySelector('.gallery-list-js');
 form.addEventListener('submit', onInputSearch);
 async function onInputSearch(event) {
   event.preventDefault();
+
   discovery.page = 1;
   if (
     discovery.query === event.currentTarget.elements.search_event.value &&
@@ -40,7 +29,6 @@ async function onInputSearch(event) {
       return;
     }
     responseSerch();
-    console.log('FFFFFF');
   } catch (error) {
     console.log(error);
   }
@@ -56,9 +44,7 @@ function responseSerch() {
       return Notiflix.Notify.warning('In this country no events!');
     }
     const serchParam = results.data._embedded.events;
-    console.log(results.data.page.number);
-    // instance.setTotalItems(results.data.page.totalElements);
-    // instance._paginate(discovery.page);
+
     const currentPage = results.data.page.number;
     let allPage = '';
     if (results.data.page.totalElements <= 1000) {
@@ -75,12 +61,15 @@ const spanSelect = document.querySelector('.custom-select-opener');
 const selectOptions = document.querySelectorAll('.custom-select-option');
 const selectPanelEl = document.querySelector('.custom-select-panel');
 const divEl = document.querySelector('.custom-select-container');
+
 divEl.classList.add('designed');
 spanSelect.classList.add('desine');
 selectOptions.forEach(el => el.classList.add('desinse'));
 selectPanelEl.classList.add('decor');
+
 const galleryListEl = document.querySelector('.gallery-page__list');
 galleryListEl.addEventListener('click', onClickTaketPAge);
+
 function onClickTaketPAge(evt) {
   if (!evt.target.classList.contains('gallery-page__item')) {
     return;
@@ -88,7 +77,7 @@ function onClickTaketPAge(evt) {
   discovery.page = Number(evt.target.textContent);
   responseSerch();
 }
-// galleryListEl.innerHTML = createPagination(totalPages, page);
+
 function createPagination(totalPages, page) {
   let gallaryItems = '';
   let activeClass;
