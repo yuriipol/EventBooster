@@ -208,7 +208,6 @@
   }
 }
 
-
 .custom-select-opener.desine {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 20px;
@@ -238,7 +237,6 @@
   box-shadow: 5px 5px 5px rgb(0 0 0 / 12%), 0 5px 5px rgb(0 0 0 / 6%),
     5px 5px 5px rgb(0 0 0 / 16%), 0 5px 5px #dc56c5;
 }
-
 
 .form-input {
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -285,7 +283,6 @@
   right: 32px;
   z-index: 10;
   pointer-events: none;
-
 
   .form__field:hover &,
   .form__field:focus-within & {
