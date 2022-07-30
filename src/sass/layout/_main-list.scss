@@ -35,7 +35,6 @@
     }
   }
 }
-
 .gallery__container {
   padding-bottom: 10px;
   @include media-query(tablet) {
@@ -65,7 +64,6 @@
 }
 .gallery__list {
   position: relative;
-
   z-index: 1;
   // margin-top: -47px;
   display: grid;
@@ -76,14 +74,11 @@
   margin-bottom: 60px;
   @include media-query(tablet) {
     margin-top: -15px;
-
     grid-template-columns: repeat(4, 152px);
     grid-column-gap: 32px;
   }
   @include media-query(desktop) {
-
     margin-top: -35px;
-
     grid-template-columns: repeat(4, 288px);
     grid-column-gap: 32px;
     grid-row-gap: 40px;
@@ -173,6 +168,13 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
+  list-style: none;
+  color: $color-primary;
+  transition: color $transition;
+  &:hover,
+  &:focus {
+    color: $color-secondary;
+  }
   @include media-query(tablet) {
     font-size: 14px;
     line-height: 1.2;
@@ -182,51 +184,9 @@
   margin-right: 3px;
 }
 // animation
-.slide-in-elliptic-right-fwd {
-  -webkit-animation: slide-in-elliptic-right-fwd 0.7s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-elliptic-right-fwd 0.7s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@-webkit-keyframes slide-in-elliptic-right-fwd {
-  0% {
-    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
-    transform: translateX(800px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-    transform-origin: -100% 50%;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-    transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-    transform-origin: -1800px 50%;
-    opacity: 1;
-  }
-}
-@keyframes slide-in-elliptic-right-fwd {
-  0% {
-    -webkit-transform: translateX(800px) rotateY(-30deg) scale(0);
-    transform: translateX(800px) rotateY(-30deg) scale(0);
-    -webkit-transform-origin: -100% 50%;
-    transform-origin: -100% 50%;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) rotateY(0) scale(1);
-    transform: translateX(0) rotateY(0) scale(1);
-    -webkit-transform-origin: -1800px 50%;
-    transform-origin: -1800px 50%;
-    opacity: 1;
-  }
-}
-
-// animation
 .puff-in-center {
   animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
-
 @keyframes puff-in-center {
   0% {
     transform: scale(2);
@@ -239,89 +199,42 @@
     opacity: 1;
   }
 }
+// gallery-pagination
+.gallery-page {
+  display: flex;
+}
+.gallery-page__list {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallery-page__item,
+.gallery-page__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-// test
-.tui-pagination .decoration .tui-first-child.tui-is-selected {
+  margin-right: 5px;
+
   width: 30px;
-
-  font-weight: 400;
+  height: 30px;
   font-size: 14px;
   line-height: 1.2;
-  text-align: center;
+  border-radius: 10px 0px;
+  cursor: pointer;
   transition: background-color $transition;
-  &:hover,
-  &:focus {
-    color: $color-secondary;
-    border: 1px solid rgba(220, 86, 197, 0.3);
-    border-radius: 10px 0px;
-  }
-  &:not(:last-child) {
-    margin-right: 5px;
-  }
   @include media-query(tablet) {
     font-size: 16px;
     line-height: 1.25;
   }
 }
-
-.tui-pagination.decoration .tui-is-selected:hover {
-  background-color: $color-secondary;
-}
-.tui-pagination .tui-page-btn:hover {
-  background: $color-secondary;
-}
-
-.tui-pagination.decoration .tui-page-btn {
-  width: 30px;
-  margin-right: 3px;
-  color: $color-primary;
-  vertical-align: middle;
-  border: none;
+.gallery-page__item.active {
+  border: 1px solid $color-secondary;
   border-radius: 10px 0px;
-  margin-left: 0;
-  padding: 4px 0 4px;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.2;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  transition: background-color $transition;
-  &:hover {
-    background-color: $color-secondary;
-  }
-  @include media-query(tablet) {
-    font-size: 16px;
-    line-height: 1.25;
-  }
 }
-
-.tui-pagination.decoration .tui-first-child.tui-is-selected {
-  border: 1px solid rgba(220, 86, 197, 0.3);
-}
-
-.tui-pagination .tui-ico-first,
-.tui-pagination .tui-ico-prev,
-.tui-pagination .tui-ico-next,
-.tui-pagination .tui-ico-last,
-.tui-pagination .tui-ico-ellip {
+.gallery-page__item:hover,
+.gallery-page__item:focus {
   background-color: $color-secondary;
+  border: 1px solid $color-secondary;
   border-radius: 10px 0px;
-  transition: background-color $transition;
-  &:hover {
-    background-color: $color-secondary;
-  }
-}
-
-.tui-pagination.decoration .tui-is-selected,
-.tui-pagination strong {
-  background-color: $color-secondary;
-}
-
-.tui-pagination.decoration {
-  height: 28px;
-  text-align: center;
-  margin: 0;
-  font-size: 0;
-  line-height: normal;
 }
